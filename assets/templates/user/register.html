@@ -1,0 +1,86 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+    <script>
+        .any{
+     position: absolute;
+    top:100px;
+    left:140px;
+    padding:5px;
+    height:200px;
+    width:1300px;
+
+    }
+    .any table{
+    width:30em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.any table tr th{
+background:rgb(255, 102, 0);
+padding:5px;
+}
+.any table tr td{
+background:rgba(255, 153, 51);
+padding:5px;
+}
+.any table tr:hover td{
+background:rgba(255, 102, 0);
+}
+
+    </script>
+<div class="any">
+
+<form method="post" autocomplete="off">
+
+    {% csrf_token %}
+<table>
+    <tr>
+        <td style="color:white"><label>First Name</label></td>
+
+        <td style="color:white">{{form.firstname}}</td>
+    </tr><tr>
+        <td style="color:white"><label>Last Name</label></td>
+
+        <td style="color:white">{{form.lastname}}</td>
+    </tr><tr>
+        <td style="color:white"><label>User ID</label></td>
+
+        <td style="color:white">{{form.userid}}</td>
+    </tr><tr>
+        <td style="color:white"><label>Password</label></td>
+
+        <td >{{form.password}}</td>
+    </tr><tr>
+        <td style="color:white"><label>MobileNumber</label></td>
+
+        <td>{{form.mobilenumber}}</td>
+    </tr><tr>
+        <td style="color:white"><label>Email Id</label></td>
+
+        <td>{{form.emailid}}</td>
+    </tr><tr>
+        <td style="color:white"><label>Gender</label></td>
+
+        <td>{{form.gender}}</td>
+    </tr><tr>
+        <td style="color:white"><label>dob</label></td>
+
+        <td>{{form.dob}}</td>
+    </tr><tr>
+        <td style="color:white"><label>age</label></td>
+
+        <td style="color:white">{{form.age}}</td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align:center"><input type="submit" name="submit" value="submit"><br></td>
+    </tr>
+</table>
+</form>
+</div>
+{% endblock %}

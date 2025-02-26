@@ -1,0 +1,90 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+    .mydetails{
+    position: absolute;
+    top:30px;
+    left:200px;
+    padding:10px;
+    width:500px;
+}
+
+.mydetails table{
+    width:30em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:;
+}
+
+.mydetails table tr th{
+    color:;
+}
+.mydetails table tr th{
+background:
+padding:10px;
+}
+.mydetails table tr td{
+background:rgb(0,0,0);
+padding:10px;
+}
+.mydetails table tr:hover td{
+background:r);
+}
+.mydetailsimagage{
+border-style:solid;
+ border-width:1px;
+ height:280px;
+ width:260px;
+ margin-top:-320px;
+ margin-left:740px;
+ background: url("{% static 'image3.jpg' %}");
+ background-size: 100%100%;
+
+}
+
+
+
+</style>
+<div class="mydetails">
+<table>
+    <tr>
+        <tr >
+    <td style="color:white"><label >FIRST NAME</label></td>
+
+    <td style="color:white">{{object.firstname}}</td></tr>
+    <tr><td style="color:white"><label>LAST NAME</label></td>
+
+        <td style="color:white">{{object.lastname}}</td></tr>
+    <tr><td style="color:white"><label>DATE OF BIRTH</label></td>
+
+        <td style="color:white">{{object.dob}}</td></tr>
+    <tr><td style="color:white"><label>AGE</label></td>
+
+        <td style="color:white">{{object.age}}</td></tr>
+    <tr><td style="color:white"><label>USER ID</label></td>
+
+        <td style="color:white">{{object.userid}}</td></tr>
+    <tr><td style="color:white"><label>PASSWORD</label></td>
+
+        <td style="color:white">{{object.password}}</td></tr>
+    <tr><td style="color:white"><label>MOBILE NUMBER</label></td>
+
+        <td style="color:white">{{object.mobilenumber}}</td></tr>
+    <tr><td style="color:white"><label>EMAIL ID</label></td>
+
+        <td style="color:white">{{object.emailid}}</td></tr>
+    <tr><td style="color:white"><label>GENDER</label></td>
+
+        <td style="color:white">{{object.gender}}</td></tr>
+
+    </tr>
+
+</table>
+    <div class="mydetailsimagage"></div>
+
+<a href="{% url 'updatedetails' %}" style="margin-top:100px;margin-left:480px;color:white;text-decoration:none;font-size:100px" > update</a></div>
+
+{% endblock %}

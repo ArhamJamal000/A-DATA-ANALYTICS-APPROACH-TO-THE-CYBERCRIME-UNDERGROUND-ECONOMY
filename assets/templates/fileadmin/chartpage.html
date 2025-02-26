@@ -1,0 +1,72 @@
+{% extends 'fileadmin/admindesign.html' %}
+{% block adminblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "DATA ANALYSIS"
+	},
+	axisY: {
+		title: ""
+	},
+	data: [{
+	{% if chart_type == "bar" %}
+		type: "bar",
+	{% elif chart_type == "pie" %}
+		type: "pie",
+	{% elif chart_type == "spline" %}
+		type: "spline",
+	{% endif %}
+
+		showInLegend: true,
+		legendMarkerColor: "grey",
+		legendText: "",
+		dataPoints: [
+			{ y: {{v1}}, label: "underworld market" },
+			{ y: {{v2}},  label: "illegal sales" },
+			{ y: {{v3}},  label: "illicit business" },
+			{ y: {{v4}},  label: "shady dealings" },
+			{ y: {{v5}},  label: "underground market" },
+			{ y: {{v6}}, label: "gray market" },
+			{ y: {{v7}},  label: "underground" },
+
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+<style>
+
+.sidemenu{
+    border-style:solid;
+    border-width:1px;
+    width:300px;
+    height:450px;
+    float:left;
+    position:fixed;
+    right:1em;
+    top:10em;
+    background:rgb(0, 51, 0);
+
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="chartContainer" style="height: 330px; width: 920px; margin-top: 50px ;margin-left:60px;float:left"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div class="sidemenu">
+    <h2 style="color:yellow;margin-left:60px;margin-top:80px"><a href="{% url 'chartpage' 'bar' %}" style="color:yellow;text-decoration:none">BAR CHAERT</a></h2>
+    <h2 style="color:yellow;margin-left:60px;margin-top:100px;"><a href="{% url 'chartpage' 'pie' %}" style="color:yellow;text-decoration:none">PIE CHART</a></h2>
+    <h2 style="color:yellow;margin-left:60px;margin-top:100px;"><a href="{% url 'chartpage' 'spline' %}"style="color:yellow;text-decoration:none">SPLINE CHART</a></h2>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'fileadmin/admindesign.html' %}
+{% block adminblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+    .chat{
+    height:450px;
+    width:500px;
+    overflow:scroll;
+    background:blue;
+    float:left;
+    }
+.name{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:-400px;
+ margin-left:830px;
+ background: url("{% static 'image12.jpg' %}");
+ background-size: 100%100%;
+float:left;
+}
+.any{
+border-style:solid;
+ border-width:1px;
+ height:80px;
+ width:200px;
+float:left;
+margin-top:200px;
+margin-left:70px;
+background:black;
+
+}
+
+</style>
+
+<div class="chat">
+<table>
+    <tr>
+        {% for s in view_list %}
+        <td style="color:white">{{s.chat}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+    <div class="any">
+    <h4 style="color:yellow;margin-left:70px;">
+{{result}}
+{{fr}}</h4>
+    </div>
+<div class="name"></div>
+
+{% endblock %}

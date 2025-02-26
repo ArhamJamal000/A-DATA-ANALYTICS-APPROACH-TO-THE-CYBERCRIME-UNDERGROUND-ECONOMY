@@ -1,0 +1,31 @@
+This is very awesome #wimbledon cham roger
+
+# is not
+position of #
+find space
+substring
+
+a=req.POST.get('st','')
+if '#' in a:
+aa=a.positin('#')
+bb=a[aa:]
+cc=a.positin(' ')
+fin=a[aa:cc]
+wimbledon
+
+
+
+twt='football is increased sport in india because of #fifa2018wc and happy for that also'
+startingPoint=twt.find('#')
+a=twt[startingPoint:]
+endingPoint=a.find(' ')
+title=a[0:endingPoint]
+ori=title[1:]
+
+
+
+startingpoint=twt.find('#')
+          a = twt[startingpoint:]
+          endingPoint = a.find(' ')
+          title = a[0:endingPoint]
+          result = title[1:]

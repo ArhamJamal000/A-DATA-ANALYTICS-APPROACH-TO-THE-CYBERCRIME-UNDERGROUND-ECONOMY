@@ -1,0 +1,47 @@
+This is very awesome #wimbledon cham roger
+
+# is not
+position of #
+find space
+substring
+
+a=req.POST.get('st','')
+if '#' in a:
+aa=a.positin('#')
+bb=a[aa:]
+cc=a.positin(' ')
+fin=a[aa:cc]
+wimbledon
+
+
+
+twt='football is increased sport in india because of #fifa2018wc and happy for that also'
+startingPoint=twt.find('#')
+a=twt[startingPoint:]
+endingPoint=a.find(' ')
+title=a[0:endingPoint]
+ori=title[1:]
+
+
+
+startingpoint=twt.find('#')
+          a = twt[startingpoint:]
+          endingPoint = a.find(' ')
+          title = a[0:endingPoint]
+          result = title[1:]
+
+
+
+
+
+
+msg = (ChatModel.objects.filter(userId=userObj,senderId=pko.id) or ChatModel.objects.filter (userId=pko,senderId=userObj.id))
+userid = request.session['userid']
+    userObj = RegisterModel.objects.get(id=userid)
+    pko = RegisterModel.objects.get(id=pk)
+    msg = (ChatModel.objects.filter(userId=userObj,senderId=pko.id) or ChatModel.objects.filter (userId=pko,senderId=userObj.id))
+    if request.method == "POST":
+        cht = request.POST.get('chat')
+
+        ChatModel.objects.create(userId=userObj,chat=cht,senderId=pk,)
+    return render(request,'user/chatpage.html',{'message':msg})

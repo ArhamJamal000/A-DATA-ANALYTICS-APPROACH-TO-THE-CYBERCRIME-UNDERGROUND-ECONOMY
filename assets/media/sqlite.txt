@@ -1,0 +1,84 @@
+
+/**
+ * Created by Home222 on 06-Nov-17.
+ */
+public class SqlHelper extends SQLiteOpenHelper {
+    private static String DATABASE_NAME = "HRDETAILS";
+    private static int DATABASE_VERSION = 1;
+
+
+
+    /**
+     * register
+     */
+
+    String TABLE_REGISTER ="registerTable";
+    String REG_NAME="regname";
+    String REG_EMAIL="regemail";
+    String REG_PASS="regpass";
+
+    String REG_MOBILE="regmobile";
+
+
+
+    public SqlHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+         
+
+        String DATABASE_REGISTER = "CREATE TABLE "+TABLE_REGISTER+" ( "+" _id TEXT , "+REG_NAME+" TEXT , "+REG_EMAIL+" TEXT ,"+REG_MOBILE+" TEXT, "+REG_PASS+" TEXT"+" )";
+
+        db.execSQL(DATABASE_REGISTER);
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_REGISTER);
+        onCreate(db);
+    }
+
+
+ 
+
+    /**
+     *
+     register table
+     */
+
+    public int insertRegistration(String s1, String s2, String s3, String s4) {
+        int i;
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(REG_NAME,s1);
+        values.put(REG_EMAIL,s2);
+        values.put(REG_MOBILE,s3);
+        values.put(REG_PASS,s4);
+
+        i =(int)sqLiteDatabase.insert(TABLE_REGISTER,null,values);
+        return i;
+    }
+
+    public String login(String username, String password) {
+        String result="no";
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor;
+        cursor=db.query(TABLE_REGISTER,new String[]{REG_NAME},REG_NAME+"=? and "+REG_PASS+"=?",new String[]{username,password},null,null,null);
+        if(cursor.moveToNext())
+        {
+            result="ok";
+        }
+        else{
+            result="no";
+        }
+        return result;
+    }
+
+
+
+}
+

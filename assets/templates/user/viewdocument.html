@@ -1,0 +1,76 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<style>
+    .viewdocument{
+     position: absolute;
+    top:20px;
+    left:px;
+    padding:5px;
+    height:400px;
+    width:530px;
+    overflow:scroll;
+    float:left;
+    }
+    .viewdocument table{
+    width:30em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.viewdocument table tr th{
+background:rgb(255, 102, 0);
+padding:5px;
+}
+.viewdocument table tr td{
+background:rgba(255, 102, 0,0.3);
+padding:5px;
+}
+.viewdocument table tr:hover td{
+background:rgba(255, 153, 51);
+}
+.viewdocumentimage{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:50px;
+ margin-left:690px;
+ background: url("{% static 'image7.gif' %}");
+ background-size: 100%100%;
+float:left;
+}
+
+
+
+</style>
+<div class="viewdocument">
+<form method="post">
+<table>
+    <tr>
+        <th>NAME</th>
+         <th>TOPIC</th>
+        <th>DOCUMNET</th>
+        <th>REQUEST</th>
+
+
+    </tr>
+    <tr>
+    {% for object in list_object %}
+        <td style="color:white">{{object.name}}</td>
+        <td style="color:white">{{object.topic}}</td>
+        <td style="color:white">{{object.document}}</td>
+        <td style="color:"><a href="{% url 'request' object.id %}" style="color:white;text-decoration:none">Request</a></td>
+</tr>
+    {% endfor %}
+</table>
+</form>
+
+</div>
+<div class="viewdocumentimage"></div>
+{% endblock %}

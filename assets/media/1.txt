@@ -1,0 +1,19 @@
+Mine Social Media Sentiment
+ 
+the social network where users can share short SMS-like messages called tweets. 
+Users share thoughts, links and pictures on social media, journalists comment on 
+live events, companies promote products and engage with customers. The list 
+of different ways to use social media could be really long, and with 500 millions 
+of tweets per day, there’s a lot of data to analyse and to play with.
+
+This is the first in a series of articles dedicated to mining data on Twitter
+ using Python. In this first part, we’ll see different options to collect data
+ from Twitter. Once we have built a data set, and analyis the posstive and negative
+tweets from th
+
+
+Due to the advancement of technology and globalization, it has become
+ much easier for people around the world to express their opinions through 
+social media platforms. Harvesting opinions through sentiment analysis from 
+people with different backgrounds and from different cultures via social media 
+platforms can help modern organizations

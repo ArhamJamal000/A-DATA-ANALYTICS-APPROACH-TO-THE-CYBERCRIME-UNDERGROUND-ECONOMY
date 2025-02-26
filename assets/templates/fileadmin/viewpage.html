@@ -1,0 +1,81 @@
+{% extends 'fileadmin/admindesign.html' %}
+{% block adminblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<style>
+    .userdetails{
+     position: absolute;
+    top:20px;
+    left:px;
+    padding:5px;
+    height:400px;
+    width:750px;
+    overflow:scroll;
+    float:left;
+    }
+    .userdetails table{
+    width:50em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.userdetails table tr th{
+background:rgb(255, 102, 0);
+padding:5px;
+}
+.userdetails table tr td{
+background:rgba(255, 102, 0,0.3);
+padding:5px;
+}
+.userdetails table tr:hover td{
+background:rgba(255, 153, 51);
+}
+.userimage{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:50px;
+ margin-left:830px;
+ background: url("{% static 'image9.png' %}");
+ background-size: 100%100%;
+float:left;
+}
+
+
+</style>
+<div class="userdetails">
+<table>
+
+    <tr>
+        <th style="color:">FIRST NAME</th>
+        <th style="color: ">LAST NAME</th>
+        <th style="color: ">DATE OF BIRTH</th>
+        <th style="color: ">AGE</th>
+        <th style="color: ">USER ID</th>
+        <th style="color: ">MOBILE NUMBER</th>
+        <th style="color: ">EMAIL ID</th>
+        <th style="color: ">GENDER</th>
+    </tr>
+    <tr>
+        {% for o in object %}
+        <td style="color:white">{{o.firstname}}</td>
+        <td style="color:white"> {{o.lastname}}</td>
+        <td style="color:white">{{o.dob}}</td>
+        <td style="color:white">{{o.age}}</td>
+        <td style="color:white">{{o.userid}}</td>
+        <td style="color:white">{{o.mobilenumber}}</td>
+        <td style="color:white">{{o.emailid}}</td>
+        <td style="color:white">{{o.gender}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</div>
+<div class="userimage"></div>
+{% endblock %}

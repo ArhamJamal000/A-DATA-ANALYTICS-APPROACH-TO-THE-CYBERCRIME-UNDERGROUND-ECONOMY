@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .menu table{
+          width:100%;
+          text-align:center;
+          }
+          .menu table td:hover{
+          background:rgb(0, 255, 153);
+          }
+          .menu table td{
+          background:rgba(0, 204, 102,0.9);
+         }
+          .menu table,.menu table th,.menu table td {
+    border: 1px solid rgb(255, 153, 153,0.5);
+    border-collapse: collapse;
+}
+.menu table th,.menu table  td {
+    padding: 15px;
+    }
+
+    .background-image{
+          position: fixed;
+          right:0;
+          left:0;
+          height: 1000px;
+          background:rgb(51, 51, 0);
+          background-size: 100%100%;
+          filter: blur(px);
+          z-index:1;
+          display: block;
+          }
+          .topic h1{
+          color:yellow;
+          padding:2px;
+          text-align:center;
+          }
+          .mainholder{
+
+          position:relative;
+          top:150px;
+          left:50px;
+          z-index:999;
+          }
+          .marquee{
+margin-top:160px;
+float:left;
+}
+
+    </style>
+</head>
+<body>
+<div class="background-image">
+    <div class="topic"><h1>A DATA ANALYTICS APPROACH TO THE CYBERCRIME UNDERGROUND ECONOMY</h1></div>
+<div class="menu">
+        <table>
+            <tr>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'mydetails' %}">MY DETAILS</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'viewdocument' %}"> VIEW FILE</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'uploadfile' %}"> UPLOAD FILE</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'download' %}"> DOWNLOAD</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'feedback' %}"> FEEDBACK</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'index' %}">LOGOUT</a></td>
+
+
+
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+<marquee>A DATA ANALYTICS APPROACH TO THE CYBERCRIME UNDERGROUND ECONOMY</marquee>
+<div class="mainholder">
+{% block userblock %}
+{% endblock %}
+</div>
+<marquee>A DATA ANALYTICS APPROACH TO THE CYBERCRIME UNDERGROUND ECONOMY</marquee>
+
+</body>
+</html>

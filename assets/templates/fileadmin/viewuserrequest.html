@@ -1,0 +1,80 @@
+{% extends 'fileadmin/admindesign.html' %}
+{% block adminblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+    .viewrequest{
+     position: absolute;
+    top:20px;
+    left:px;
+    padding:5px;
+    height:400px;
+    width:830px;
+    overflow:scroll;
+    float:left;
+    }
+    .viewrequest table{
+    width:50em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.viewrequest table tr th{
+background:rgb(255, 102, 0);
+padding:5px;
+}
+.viewrequest table tr td{
+background:rgba(255, 102, 0,0.3);
+padding:5px;
+}
+.viewrequest table tr:hover td{
+background:rgba(255, 153, 51);
+}
+.requestimage{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:50px;
+ margin-left:890px;
+ background: url("{% static 'image11.png' %}");
+ background-size: 100%100%;
+float:left;
+}
+
+
+
+</style>
+<div class="viewrequest">
+<table>
+    <tr>
+        <th style="color:">NAME</th>
+        <th style="color:" >TOPIC</th>
+        <th style="color:">DOCUMNENT</th>
+        <th style="color:">STATUS</th>
+        <th style="color:">CHAT</th>
+        <th style="color:">REQUEST STATUS</th>
+        <th style="color:">DELETE</th>
+    </tr>
+    <tr>
+        {% for v in view_list %}
+        <td style="color:white">{{v.accesstwo.name}}</td>
+        <td style="color:white">{{v.accesstwo.topic}}</td>
+        <td style="color:white">{{v.accesstwo.document}}</td>
+        <td style="color:white">{{v.request}}</td>
+        <td ><a href="{% url 'viewchat' v.id %}" style="color:white">chat </a></td>
+        <td><a href="{% url 'accepts' v.id %}" style="color:white;text-decoration:none" >Accept</a>
+         <a href="{% url 'rejects' v.id %}" style="color:white;text-decoration:none">Reject</a></td>
+        <td><a href="{% url 'deleteobjs' v.id %}" style="color:white">delete</a></td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+<div class="requestimage"></div>
+{% endblock %}

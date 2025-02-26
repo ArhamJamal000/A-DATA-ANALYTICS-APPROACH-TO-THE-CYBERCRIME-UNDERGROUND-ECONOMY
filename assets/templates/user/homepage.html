@@ -1,0 +1,81 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<style>
+    .feedback{
+     position: absolute;
+    top:100px;
+    left:140px;
+    padding:5px;
+    height:200px;
+    width:1300px;
+
+    }
+    .feedback table{
+    width:30em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.feedback table tr th{
+background:rgb(255, 102, 0);
+padding:5px;
+}
+.feedback table tr td{
+background:rgba(255, 153, 51);
+padding:5px;
+}
+.feedback table tr:hover td{
+background:rgba(255, 102, 0);
+}
+.feedbackimage{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:-250px;
+ margin-left:640px;
+ background: url("{% static 'image6.gif' %}");
+ background-size: 100%100%;
+
+}
+
+
+</style>
+
+<div class="feedback">
+
+<form method="post" autocomplete="off">
+
+    {% csrf_token %}
+<table>
+    <tr>
+        <td style="color:"><label> NAME</label></td>
+
+        <td>{{form.name}}</td>
+    </tr><tr>
+        <td style="color:"><label>MOBILE NUMBER</label></td>
+
+        <td>{{form.mobilenumber}}</td>
+    </tr><tr>
+        <td style="color:"><label>EMAIL ID</label></td>
+
+        <td>{{form.emailid}}</td>
+    </tr><tr>
+        <td style="color:"><label>FEEDBACK</label></td>
+
+        <td>{{form.feedback}}</td>
+    </tr><tr>
+        <td colspan="3" style="text-align:center"><input type="submit" name="submit" value="SUBMIT" style="background:red;color:white"><br></td>
+    </tr>
+</table>
+</form>
+    <div class="feedbackimage"></div>
+</div>
+
+{% endblock %}

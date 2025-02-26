@@ -1,0 +1,101 @@
+{% extends 'user/design.html' %}
+{% block userblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<style>
+.update{
+     position: absolute;
+    top:60px;
+    left:140px;
+    padding:5px;
+    height:200px;
+    width:1300px;
+
+    }
+    .update table{
+    width:30em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.update table tr th{
+background:rgb(255, 102, 0);
+padding:5px;
+}
+.update table tr td{
+background:rgba(255, 153, 51);
+padding:5px;
+}
+.update table tr:hover td{
+background:rgba(255, 102, 0);
+}
+
+
+
+    .updatedimage{
+border-style:solid;
+ border-width:1px;
+ height:350px;
+ width:400px;
+ margin-top:-320px;
+ margin-left:540px;
+ background: url("{% static 'image13.jpg' %}");
+ background-size: 100%100%;
+
+}
+</style>
+<div class="update">
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td style="color:black">FIRST NAME</td>
+            <td><input type="text" name="FirstName" value="{{obj.firstname}}"></td>
+        </tr>
+        <tr>
+
+            <td style="color:">LAST NAME</td>
+            <td><input type="text" name="LastName" value="{{obj.lastname}}"></td>
+        </tr>
+        <tr>
+            <td style="color:">DATE OF BIRTH</td>
+            <td><input type="text" name="DateOfBirth" value="{{obj.dob}}"></td>
+        </tr>
+        <tr>
+            <td style="color:">AGE</td>
+            <td><input type="text" name="Age" value="{{obj.age}}"></td>
+        </tr>
+                <tr>
+            <td style="color:">USER ID</td>
+            <td><input type="text" name="UserId" value="{{obj.userid}}"></td>
+        </tr>
+        <tr>
+            <td style="color:">PASSWORD</td>
+            <td><input type="text" name="Password" value="{{obj.password}}"></td>
+        </tr>
+        <tr>
+            <td style="color:">MOBILE NUMBER</td>
+            <td><input type="text" name="MobileNumber" value="{{obj.mobilenumber}}"></td>
+        </tr>
+        <tr>
+            <td style="color:"> EMAIL ID</td>
+            <td><input type="text" name="EmailId" value="{{obj.emailid}}"></td>
+        </tr>
+        <tr>
+            <td style="color:">GENDER</td>
+            <td><input type="text" name="Gender" value="{{obj.gender}}"></td>
+        </tr>
+<tr>
+            <td style="text-align:center;" colspan="2"><input type="submit" name="submit" value="SUBMIT" style="background:red;color:white"></td>
+        </tr>
+    </table>
+</form>
+    <div class="updatedimage"></div>
+</div>
+
+
+{% endblock %}
